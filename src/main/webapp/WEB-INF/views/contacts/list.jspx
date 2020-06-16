@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" 
+     xmlns:c="http://java.sun.com/jsp/jstl/core"
+     xmlns:joda="http://www.joda.org/joda/time/tags" 
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+     version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    
+    <!-- head>
+    	<spring:theme code="styleSheet" var="app_css"/>
+    	<spring:url value="/${app_css}" var="app_css_url"/>
+    	<link rel="stylesheet" type="text/css" media="screen" href="${app_css_url}"/>
+    </head-->
+    
+    <spring:message code="label_contact_list" var="labelContactList"/>
+    <spring:message code="label_contact_name" var="labelContactName"/>
+    <spring:message code="label_contact_description" var="labelContactDescription"/>
+    <spring:message code="label_contact_last_contacted_date" var="labelContactLastContactedDate"/>
+    
+<!--
+    <spring:url value="/contacts/" var="showContactUrl"/>  
+    
+    <script type="text/javascript">
+    $(function(){
+    	
+      $("#list").jqGrid({
+        url:'${showContactUrl}/listgrid',
+        datatype: 'json',
+        mtype: 'GET',
+        colNames:['${labelContactName}', '${labelContactDescription}', '${labelContactLastContactedDate}'],
+        colModel :[ 
+          {name:'name', index:'name', width:150},
+          {name:'description', index:'description', width:100}, 
+          {name:'lastContactedDateString', index:'lastContactedDate', width:100}
+        ],
+        jsonReader : {
+            root:"contactData",
+            page: "currentPage",
+            total: "totalPages",
+            records: "totalRecords",
+            repeatitems: false,
+            id: "id"
+        },      
+        pager: '#pager',
+        rowNum:10,
+        rowList:[10,20,30],
+        sortname: 'name',
+        sortorder: 'asc',
+        viewrecords: true,
+        gridview: true,
+        height: 250,
+        width: 500,
+        caption: '${labelContactList}',
+        onSelectRow: function(id){ 
+            document.location.href ="${showContactUrl}/" + id;
+        }
+      });
+    });
+    </script>
+
+    <c:if test="${not empty message}">
+        <div id="message" class="${message.type}">${message.message}</div>
+    </c:if>
+
+    <h2>${labelContactList}</h2>
+    
+    <div>
+    <table id="list"><tr><td/></tr></table> 
+    </div>
+    <div id="pager"></div>  
+-->
+
+<!-- Pre-jqGrid-->
+	<h1>${labelContactList}</h1>
+	
+	<spring:url value="/contacts" var="showContactUrl"/>
+	
+	<c:if test="${not empty contacts}">
+		<table>
+			<thead>
+				<tr>
+					<th>${labelContactName}</th>
+					<th>${labelContactDescription}</th>
+					<th>${labelContactLastContactedDate}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach items="${contacts}" var="contact">
+					<tr>
+						<td><a href="${showContactUrl}/${contact.id}">${contact.name}</a></td>
+						<td>${contact.description}</td>
+						<td><joda:format value="${contact.lastContactedDate}" pattern="dd-MM-yyyy"/></td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+	</c:if>
+<!-- Pre-jqGrid -->
+
+</div>

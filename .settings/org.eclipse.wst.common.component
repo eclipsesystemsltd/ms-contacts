@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+	<wb-module deploy-name="ms-contacts">
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
+		<wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+		<wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+		<wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/resources"/>
+        <dependent-module archiveName="ms-service-impl-1.0.0.-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/ms-service-impl/ms-service-impl">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ms-domain-1.0.0.-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/ms-domain/ms-domain">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ms-domain-validators-1.0.0.-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/ms-domain-validators/ms-domain-validators">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ms-service-api-1.0.0.-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/ms-service-api/ms-service-api">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ms-persistence-service-api-1.0.0.-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/ms-persistence-service-api/ms-persistence-service-api">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ms-persistence-service-jpa-impl-1.0.0.-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/ms-persistence-jpa-impl/ms-persistence-jpa-impl">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+		<property name="java-output-path" value="target/classes"/>
+        <property name="context-root" value="ms-contacts-app"/>
+	</wb-module>
+</project-modules>
